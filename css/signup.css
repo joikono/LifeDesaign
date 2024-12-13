@@ -1,0 +1,227 @@
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAFAFA;
+}
+
+/* Header Section */
+.header {
+    background-color: #815bff;
+    color: white;
+    padding: 20px 0; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.logo {
+font-size: 24px;
+font-weight: bold;
+margin-left: 120px; 
+color: white;
+}
+
+.logo a {
+    color: white; /* Set text color to white */
+    text-decoration: none; /* Remove underlining */
+}
+
+.nav {
+display: flex;
+justify-content: flex-end; /* Align items to the right */
+gap: 48px; /* Ensure 48px distance between links */
+margin-right: 120px;
+}
+
+
+.nav-link {
+color: white;
+text-decoration: none;
+font-size: 16px;
+}
+
+.nav-link.active {
+font-weight: bold;
+}
+
+.nav-link:hover {
+opacity: 0.8;
+}
+
+
+
+.container {
+    margin-top: 50px; /* Adjust for header height */
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+form p {
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+input[type="firstname"],
+input[type="lastname"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actions label {
+    display: flex;
+    align-items: center;
+}
+
+.actions a {
+    color: #7b52d7;
+    text-decoration: none;
+}
+
+.actions a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #815BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #6939b6;
+}
+
+button:disabled {
+    background-color: #d3d3d3; /* Light grey background */
+    color: #a3a3a3; /* Darker grey text */
+    cursor: not-allowed;
+    opacity: 0.6; /* Make it slightly transparent */
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.social-buttons button {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.social-buttons button:hover {
+    background-color: #f5f5f5;
+}
+
+footer {
+    margin-top: 1rem;
+}
+
+footer a {
+    color: #7b52d7;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Style for the overlay */
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    z-index: 1000; /* Ensures overlay appears above other content */
+}
+
+.overlay-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 750px;
+    border-radius: 8px;
+    text-align: left;
+    position: relative; /* For positioning the close button */
+
+}
+
+.close-btn {
+    position: absolute;  /* Absolute positioning relative to the .overlay-content */
+    top: 20px;            /* Adjust this value to move the button further down or up */
+    right: 20px;          /* Keeps the button aligned to the top-right inside the overlay */
+    font-size: 30px;
+    cursor: pointer;
+    color: #000;
+    z-index: 1100; /* Ensure button stays above the overlay content */
+}
+
+
+
+
+
+
+
+/* Adjust margin-top for smaller screens */
+@media (max-width: 768px) { /* For screens smaller than or equal to 768px */
+    .container {
+        margin-top: 100px; /* Reduce margin-top for smaller screens */
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) { /* For screens smaller than or equal to 480px */
+    .container {
+        margin-top: 30px; /* Further reduce margin-top for very small screens */
+    }
+}

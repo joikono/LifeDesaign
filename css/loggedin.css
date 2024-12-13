@@ -1,0 +1,216 @@
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAFAFA;
+}
+
+/* Header Section */
+.header {
+    background-color: #815bff;
+    color: white;
+    padding: 0 120px; /* Add padding for spacing */
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center; /* Center items vertically */
+    height: 80px; /* Set a consistent header height */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo a {
+    color: white; /* Set text color to white */
+    text-decoration: none; /* Remove underlining */
+}
+
+.nav {
+    display: flex;
+    align-items: center; /* Center navigation items vertically */
+    gap: 48px; /* Space between nav items */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    gap: 8px; /* Space between icon and text */
+}
+
+.nav-link.active {
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+.nav-link img {
+    vertical-align: middle; /* Ensure icon aligns properly */
+    border-radius: 50%; /* Make the user icon circular */
+}
+
+
+.container {
+    margin-top: 50px; /* Adjust for header height */
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+form p {
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actions label {
+    display: flex;
+    align-items: center;
+}
+
+.actions a {
+    color: #7b52d7;
+    text-decoration: none;
+}
+
+.actions a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #815BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #6939b6;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.social-buttons button {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.social-buttons button:hover {
+    background-color: #f5f5f5;
+}
+
+
+
+
+.footer {
+    margin-top: 200px;
+    height: 197px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #815bff;
+    padding: 24px; 
+    color: white;
+  }
+  
+  .footer-left {
+    margin-left: 200px; 
+  }
+  
+  .footer-left h3 {
+    font-family: 'SF Compact Text', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .footer-right {
+    display: flex;
+    gap: 32px; 
+    margin-right: 200px; 
+  }
+  
+  .footer-right .footer-link {
+    font-family: 'SF Compact Text', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: white; 
+    text-decoration: none;
+  }
+  
+  .footer-right .footer-link:hover {
+    text-decoration: underline; 
+  }
+  
+
+
+
+
+
+
+/* Adjust margin-top for smaller screens */
+@media (max-width: 768px) { /* For screens smaller than or equal to 768px */
+    .container {
+        margin-top: 100px; /* Reduce margin-top for smaller screens */
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) { /* For screens smaller than or equal to 480px */
+    .container {
+        margin-top: 30px; /* Further reduce margin-top for very small screens */
+    }
+}
