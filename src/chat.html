@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/chat.css">
+    </head>
+    <body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="/src/loggedin.html">Life Des[ai]gn</a>
+        </div>
+        <nav class="nav">
+            <a href="/src/chat.html" class="nav-link active">Chat</a>
+            <a href="/src/goals.html" class="nav-link">Goals</a>
+            <div href="#user" class="nav-link">
+                <img src="/img/usericon.png" style="width: 50px; height: 50px;">
+                <a>User</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" style="align-items: center;">
+            <h1>Hi User, this is the chatbot page!</h1>
+
+            <div id="chat-container" class="chat-container">
+                <!-- Chat messages will be dynamically appended here -->
+            </div>
+            <div class="input-section">
+                <input id="user-input" type="text" placeholder="Type your message here..." />
+                <button id="submit-btn">Send</button>
+            </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <h3>Life Des[ai]gn</h3>
+        </div>
+      
+        <div class="footer-right">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">FAQs</a>
+            <a href="#" class="footer-link">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="/chat.js"></script>
+    </body>
+</html>
