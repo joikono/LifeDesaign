@@ -1,25 +1,35 @@
-* {box-sizing: border-box;}
-
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #FAFAFA;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'SF Compact Text', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+    width: 100%;
+  }
 
 /* Header Section */
 .header {
     background-color: #815bff;
     color: white;
-    padding: 0 120px; /* Add padding for spacing */
+    padding: 20px 0;
     display: flex;
-    justify-content: space-between; /* Space between logo and nav */
-    align-items: center; /* Center items vertically */
-    height: 80px; /* Set a consistent header height */
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;  /* Ensure it's at the top of the page */
+    width: 100%;
+    z-index: 1000; /* Ensures the header stays above other content */
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+    margin-left: 120px; 
 }
 
 .logo a {
@@ -29,9 +39,10 @@ body {
 
 .nav {
     display: flex;
-    align-items: center; /* Center navigation items vertically */
-    gap: 48px; /* Space between nav items */
-}
+    justify-content: flex-end; 
+    gap: 48px; 
+    margin-right: 120px;
+    }
 
 .nav-link {
     color: white;
@@ -165,36 +176,127 @@ button:hover {
     background-color: #815bff;
     padding: 24px; 
     color: white;
-  }
-  
-  .footer-left {
+    }
+    
+    .footer-left {
     margin-left: 200px; 
-  }
-  
-  .footer-left h3 {
+    }
+    
+    .footer-left h3 {
     font-family: 'SF Compact Text', sans-serif;
     font-size: 20px;
     font-weight: 700;
     margin: 0;
-  }
-  
-  .footer-right {
+    }
+    
+    .footer-right {
     display: flex;
     gap: 32px; 
     margin-right: 200px; 
-  }
-  
-  .footer-right .footer-link {
+    }
+    
+    .footer-right .footer-link {
     font-family: 'SF Compact Text', sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: white; 
     text-decoration: none;
-  }
-  
-  .footer-right .footer-link:hover {
+    }
+    
+    .footer-right .footer-link:hover {
     text-decoration: underline; 
-  }
+    }
+    
+    /* Style for the overlay */
+    .overlay {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+      z-index: 1000; /* Ensures overlay is above other content */
+    }
+    
+    /* Style for overlay content */
+    .overlay-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 8px;
+      position: relative;
+      text-align: left;
+    }
+    
+    /* Close button style */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    /* Privacy Policy Content */
+    #privacy-overlay p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #555;
+    }
+    
+    /* Contact Form */
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 24px;
+      font-size: 14px;
+    }
+    
+    form textarea {
+      height: 100px;
+      resize: none;
+    }
+    
+    .submit-button {
+      background-color: #815BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .submit-button:hover {
+      background-color: #6939B6;
+    }
 
 
 
@@ -248,3 +350,100 @@ button:hover {
   .show {
     display: block;
   }
+
+/* Style for the overlay */
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    z-index: 1000; /* Ensures overlay is above other content */
+  }
+  
+  /* Style for overlay content */
+  .overlay-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    text-align: left;
+  }
+  
+  /* Close button style */
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  /* Privacy Policy Content */
+  #privacy-overlay p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* Contact Form */
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    font-size: 14px;
+  }
+  
+  form textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .submit-button {
+    background-color: #815BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #6939B6;
+  }
+  
+
+  body.overlay-open {
+    overflow: hidden; /* Prevent scrolling */
+    padding-right: 500px; /* This compensates for the scrollbar width (17px is standard for many browsers) */
+}

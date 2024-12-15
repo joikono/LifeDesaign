@@ -30,7 +30,7 @@
   </section>
   
   <section class="how-it-works">
-    <div class="how-it-works-left-container">
+    <div class="how-it-works-left-container" style="align-items: center;">
       <h2>How It Works</h2>
       <p>
         LifeDes[ai]gn provides value by offering advice in digestible, incremental steps, avoiding overwhelming users with large chunks of information.
@@ -195,23 +195,25 @@
         <p>
           Discover the brilliance behind LifedesAIgn. Our team of students blends cutting-edge technology, creativity, and industry knowledge to craft personalised career solutions that inspire and empower. With a commitment to innovation and your success, we design strategies that guide you towards your professional goals, ensuring you stay ahead in a dynamic world.
         </p>
-        <a href="#" class="button">Contact Us</a>
+        <a href="#" class="button" onclick="openOverlay('contact-overlay')">Contact Us</a>
       </div>
     </div>
   </section>
   
+
+
 
   <!-- Footer Section -->
   <footer class="footer">
     <div class="footer-left">
       <h3>Life Des[ai]gn</h3>
     </div>
-  
     <div class="footer-right">
-      <a href="#" class="footer-link">Privacy Policy</a>
-      <a href="#" class="footer-link">FAQs</a>
-      <a href="#" class="footer-link">Contact Us</a>
+      <a href="#" class="footer-link" onclick="openOverlay('privacy-overlay')">Privacy Policy</a>
+      <a href="/faqs.html" class="footer-link">FAQs</a>
+      <a href="#" class="footer-link" onclick="openOverlay('contact-overlay')">Contact Us</a>
     </div>
-</footer>
+  </footer>
+  <script src="/landingpage.js"></script>
 </body>
 </html>
