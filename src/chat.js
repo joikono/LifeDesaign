@@ -111,7 +111,6 @@ async function sendMessage(message) {
 
 
 
-
 document.addEventListener('DOMContentLoaded', async () => {
     const submitButton = document.getElementById('submit-btn');
     const userInput = document.getElementById('user-input');
@@ -122,9 +121,60 @@ document.addEventListener('DOMContentLoaded', async () => {
         messageElement.classList.add('chat-bubble');
         messageElement.classList.add(isUser ? 'user-message' : 'bot-message');
         messageElement.textContent = message;
+
+        messageElement.innerHTML = formatMessage(message);
+
         chatContainer.appendChild(messageElement);
         chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to the latest message
     };
+
+    let weeklyTasks = [];
+
+    const formatMessage = (message) => {
+        // Convert double asterisks to <strong> tags for bold
+        message = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); 
+    
+        // Replace newlines with <br> for line breaks (if needed)
+        message = message.replace(/\n/g, '<br>'); 
+    
+        const weeklyTasksMatch = message.match(/WEEKLY_TASKS\s*=\s*\[([\s\S]*?)\];/);
+        if (weeklyTasksMatch) {
+            try {
+                // Clean up the extracted content by removing surrounding JavaScript code and <br> tags
+                let tasksString = weeklyTasksMatch[1].trim();
+                tasksString = tasksString.replace(/<br>/g, ''); // Remove <br> tags
+    
+                // Convert object keys to double-quoted strings for JSON compliance
+                tasksString = tasksString.replace(/([{\s,])(\w+):/g, '$1"$2":');
+    
+                // Now wrap the string in an array format if it's not already
+                if (!tasksString.startsWith('[')) {
+                    tasksString = '[' + tasksString + ']'; // Wrap in array brackets
+                }
+    
+                // Now parse the string as JSON (it should be a valid JavaScript array now)
+                weeklyTasks = JSON.parse(tasksString);
+                console.log("Captured weekly tasks:", weeklyTasks); // For debugging
+
+                // Save the weeklyTasks array to localStorage so that it can be accessed in goals.js
+                if (typeof window !== 'undefined' && window.localStorage) {
+                    localStorage.setItem('weeklyTasks', JSON.stringify(weeklyTasks));
+                }
+
+            } catch (e) {
+                console.error("Error parsing WEEKLY_TASKS:", e);
+            }
+    
+        }
+
+
+        message = message.replace(/WEEKLY_TASKS[\s\S]*?```/g, "");
+
+        message = message.replace(/###\s*javascript/g, "");
+
+        return message;
+    };
+    
 
     // Function to handle the message submission logic
     const handleMessageSubmit = async () => {
@@ -150,7 +200,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Send a blank message to initiate the conversation (but don't display it)
+    //User Dropdown
+    const userButton = document.getElementById('userButton');
+    const dropdown = document.getElementById('userDropdown');
+
+    userButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        dropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(event) {
+    if (!event.target.closest('.user-container')) {
+        dropdown.classList.remove('show');
+        }
+    });
+
+    //Send a blank message to initiate the conversation (but don't display it)
     const initiateConversation = async () => {
         console.log("Sending blank message...");  // Debugging blank message
         const response = await sendMessage("");  // Sends the blank message to Langflow
@@ -165,4 +230,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Call initiateConversation when the page loads
     await initiateConversation(); // Ensure the conversation is initiated when the page loads
 });
-
