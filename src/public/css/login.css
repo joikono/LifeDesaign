@@ -1,9 +1,20 @@
-* {box-sizing: border-box;}
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #FAFAFA;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Header Section */
@@ -14,164 +25,239 @@ body {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-}
-
-.logo {
-font-size: 24px;
-font-weight: bold;
-margin-left: 120px; 
-color: white;
-}
-
-.logo a {
-    color: white; /* Set text color to white */
-    text-decoration: none; /* Remove underlining */
-}
-
-.nav {
-display: flex;
-justify-content: flex-end; /* Align items to the right */
-gap: 48px; /* Ensure 48px distance between links */
-margin-right: 120px;
-}
-
-
-.nav-link {
-color: white;
-text-decoration: none;
-font-size: 16px;
-}
-
-.nav-link.active {
-font-weight: bold;
-}
-
-.nav-link:hover {
-opacity: 0.8;
-}
-
-
-
-.container {
-    margin-top: 50px; /* Adjust for header height */
+    position: fixed;
     width: 100%;
-    max-width: 700px;
+  }
+  
+  .logo {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 120px; 
+  }
+  
+  .logo a {
+      color: white; 
+      text-decoration: none; 
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 48px; 
+    margin-right: 120px;
+  }
+  
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+  }
+  
+  .nav-link:hover {
+    opacity: 0.8;
+  }
+  
+
+/* Main Container */
+.container {
+    margin-top: 96px;
+    width: 100%;
+    max-width: 560px;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
+    padding: 0; 
 }
 
+/* Form */
 form {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    border: none; 
+    box-shadow: none; 
+    
 }
 
 form h1 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 36px;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: -10px;
+    font-family: 'SF Compact Text', sans-serif;
 }
 
 form p {
-    margin-bottom: 2rem;
+    font-size: 20px;
     color: #555;
+    margin-bottom: 72px;
+    
+    
+}
+
+form label {
+    text-align: left;
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: #333;
+    font-weight: 600;
+    font-family: 'SF Compact Text', sans-serif;
+    margin-bottom: 12px;
+
+
+}
+
+form label1 {
+    text-align: left;
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: #333;
+    font-weight: 400;
+    font-family: 'SF Compact Text', sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+
+
 }
 
 input[type="email"],
 input[type="password"] {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #815BFF;
+    border-radius: 24px;
+    font-size: 14px;
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: block;
 }
 
 input[type="checkbox"] {
-    margin-right: 0.5rem;
+    margin-right: 5px;
+    text-align: left
 }
 
+
+/* Actions */
 .actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.actions label {
-    display: flex;
-    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: -2
+;
 }
 
 .actions a {
-    color: #7b52d7;
+    color: #815BFF;
     text-decoration: none;
+    margin-top: -10px;
 }
 
 .actions a:hover {
     text-decoration: underline;
 }
 
+/* Button */
 button {
-    width: 100%;
-    padding: 0.8rem;
     background-color: #815BFF;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 24px;
     cursor: pointer;
-    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #6939b6;
+    background-color: #6939B6;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    color: #815BFF;
+    font-size: 14px;
+    position: relative;
+    margin-top: 31px;
+    margin-bottom: 31px;
+}
+
+.divider:before,
+.divider:after {
+    content: '';
+    height: 1px;
+    background: #815BFF;
+    flex: 1;
+    margin: 0 10px;
+}
+
+
+.social-section {
+    margin-top: 32px; 
+    text-align: center;
+    width: 100%;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    margin-left: -120px;
 }
 
 .social-buttons {
     display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-evenly; 
 }
 
-.social-buttons button {
-    padding: 0.8rem 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
+.social-button {
+    flex: 1;
+    width: 190px;
+    border: 2px solid #815BFF;
     background-color: white;
-    font-size: 14px;
+    color: #815BFF;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 400;
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.social-buttons button:hover {
-    background-color: #f5f5f5;
+.social-button img {
+    width: 24px;
+}
+
+.social-button:hover {
+    background-color: #F4F4F4;
+    color: #6939B6;
 }
 
 footer {
-    margin-top: 1rem;
+    margin-top: 20px;
 }
 
 footer a {
-    color: #7b52d7;
+    color: #815BFF;
+    font-weight: bold;
     text-decoration: none;
 }
 
 footer a:hover {
     text-decoration: underline;
-}
-
-
-/* Adjust margin-top for smaller screens */
-@media (max-width: 768px) { /* For screens smaller than or equal to 768px */
-    .container {
-        margin-top: 100px; /* Reduce margin-top for smaller screens */
-    }
-}
-
-/* Further adjustments for very small screens */
-@media (max-width: 480px) { /* For screens smaller than or equal to 480px */
-    .container {
-        margin-top: 30px; /* Further reduce margin-top for very small screens */
-    }
 }

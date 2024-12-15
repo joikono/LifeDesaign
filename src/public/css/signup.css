@@ -24,14 +24,14 @@ color: white;
 }
 
 .logo a {
-    color: white; /* Set text color to white */
-    text-decoration: none; /* Remove underlining */
+    color: white; 
+    text-decoration: none; 
 }
 
 .nav {
 display: flex;
-justify-content: flex-end; /* Align items to the right */
-gap: 48px; /* Ensure 48px distance between links */
+justify-content: flex-end; 
+gap: 48px; 
 margin-right: 120px;
 }
 
@@ -53,66 +53,129 @@ opacity: 0.8;
 
 
 .container {
-    margin-top: 50px; /* Adjust for header height */
+    margin-top: 48px;
     width: 100%;
-    max-width: 700px;
-    text-align: center;
+    max-width: 600px;
     margin-right: auto;
     margin-left: auto;
 }
 
 form {
-    background: white;
+    background: #FAFAFA;
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 form h1 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #333;
+    font-family: 'SF Compact', Arial, sans-serif; 
+    font-size: 36px; 
+    margin-bottom: -10px;
+    color: #000;
+    font-weight: 400; 
+    text-align: center; 
+
 }
 
 form p {
-    margin-bottom: 2rem;
+    font-family: 'SF Compact', Arial, sans-serif; 
+    font-size: 20px; 
     color: #555;
+    text-align: center;
+    margin-bottom: 72px;
 }
 
-input[type="firstname"],
-input[type="lastname"],
-input[type="email"],
-input[type="password"] {
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Labels Styling */
+label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 16px;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: 600;
+}
+
+input {
     width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 10px;
+    border: 2px solid #815BFF;
+    border-radius: 24px;
+    font-size: 14px;
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: block;
+}
+
+input:focus {
+    border-color: #6939B6;
+    outline: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="firstname"],
+input[type="lastname"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #815BFF;
+    border-radius: 24px;
+    font-size: 14px;
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: block;
+}
+
+input:focus {
+    border-color: #6939B6; 
+    outline: none;
 }
 
 input[type="checkbox"] {
-    margin-right: 0.5rem;
+    margin-right: 2px;
+    text-align: left;
 }
 
 .actions {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: center; 
+    justify-content: flex-start;
+    text-align: left; 
+    margin-top: -16px; 
+    margin-bottom: 16px;
 }
 
 .actions label {
-    display: flex;
-    align-items: center;
+    display: inline-flex;
+    align-items: center; 
+    font-size: 14px; 
+    line-height: 1.5; 
+    gap: 8px; 
+}
+
+.actions input[type="checkbox"] {
+    margin: 0; 
+    width: auto; 
+    height: auto; 
 }
 
 .actions a {
+    
     color: #7b52d7;
-    text-decoration: none;
+    text-decoration: underline;
+    font-size: 14px;
 }
 
 .actions a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
+
 
 button {
     width: 100%;
@@ -120,9 +183,11 @@ button {
     background-color: #815BFF;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 24px;
     cursor: pointer;
     font-size: 1rem;
+    font-size: 20px;
+    height: 46px;
 }
 
 button:hover {
@@ -130,39 +195,79 @@ button:hover {
 }
 
 button:disabled {
-    background-color: #d3d3d3; /* Light grey background */
-    color: #a3a3a3; /* Darker grey text */
+    background-color: #d3d3d3; 
+    color: #a3a3a3; 
     cursor: not-allowed;
-    opacity: 0.6; /* Make it slightly transparent */
+    opacity: 0.6; 
 }
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    color: #815BFF;
+    font-size: 14px;
+    position: relative;
+    margin-top: 31px;
+    margin-bottom: 31px;
+}
+
+.divider:before,
+.divider:after {
+    content: '';
+    height: 1px;
+    background: #815BFF;
+    flex: 1;
+    margin: 0 10px;
+}
+
 
 .social-buttons {
     display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
+    justify-content: center; 
+    gap: 20px;
+    margin: 32px ; 
+    text-align: center; 
+    margin-top: -40px;
 }
 
 .social-buttons button {
-    padding: 0.8rem 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: white;
-    font-size: 14px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 8px; 
+    padding: 12px 24px; 
+    background-color: #f3f3f3;
+    border: 2px solid #815BFF; 
+    border-radius: 24px; 
+    cursor: pointer;
+    font-size: 14px;
+    color: #815BFF; 
+    font-weight: 500;
+    width: 220px; 
+    transition: all 0.3s ease;
 }
 
 .social-buttons button:hover {
-    background-color: #f5f5f5;
+    background-color: #815BFF; 
+    color: white;
 }
 
+.social-buttons img {
+    width: 20px; 
+    height: 20px; 
+}
+
+
 footer {
-    margin-top: 1rem;
+    margin-top: 20px;
+    text-align: center;
 }
 
 footer a {
-    color: #7b52d7;
+    color: #815BFF;
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -171,57 +276,41 @@ footer a:hover {
 }
 
 
-
-/* Style for the overlay */
 .overlay {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    z-index: 1000; /* Ensures overlay appears above other content */
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1000; 
 }
 
 .overlay-content {
+    position: absolute; 
+    top: 10%; 
+    left: 50%;
+    transform: translate(-50%, 0); 
     background-color: white;
-    margin: 10% auto;
     padding: 20px;
-    width: 80%;
-    max-width: 750px;
+    width: 100%;
+    max-width: 850px;
     border-radius: 8px;
     text-align: left;
-    position: relative; /* For positioning the close button */
-
 }
 
 .close-btn {
-    position: absolute;  /* Absolute positioning relative to the .overlay-content */
-    top: 20px;            /* Adjust this value to move the button further down or up */
-    right: 20px;          /* Keeps the button aligned to the top-right inside the overlay */
+    position: absolute;  
+    top: 20px;            
+    right: 20px;         
     font-size: 30px;
     cursor: pointer;
     color: #000;
-    z-index: 1100; /* Ensure button stays above the overlay content */
+    z-index: 1100; 
+
 }
 
 
 
 
-
-
-
-/* Adjust margin-top for smaller screens */
-@media (max-width: 768px) { /* For screens smaller than or equal to 768px */
-    .container {
-        margin-top: 100px; /* Reduce margin-top for smaller screens */
-    }
-}
-
-/* Further adjustments for very small screens */
-@media (max-width: 480px) { /* For screens smaller than or equal to 480px */
-    .container {
-        margin-top: 30px; /* Further reduce margin-top for very small screens */
-    }
-}
