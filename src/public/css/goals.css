@@ -60,37 +60,10 @@ body {
 .container {
     margin-top: 50px; /* Adjust for header height */
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-}
-
-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-form h1 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-form p {
-    margin-bottom: 2rem;
-    color: #555;
-}
-
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
 }
 
 input[type="checkbox"] {
@@ -248,3 +221,60 @@ button:hover {
   .show {
     display: block;
   }
+
+
+
+  /* Container for weekly tasks */
+#weekly-tasks-container {
+    padding: 20px; /* Padding around the container */
+    max-width: 800px; /* Maximum width for readability */
+    margin: 0 auto; /* Centering the container */
+    font-family: Arial, sans-serif; /* Nice readable font */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Each individual task block */
+.task {
+    margin-bottom: 20px; /* Add space between each task */
+    padding: 15px;
+    border: 1px solid #ddd; /* Border around each task */
+    border-radius: 8px; /* Rounded corners for the task block */
+    background-color: #fff; /* White background for the task */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Add hover effect to tasks */
+.task:hover {
+    background-color: #f1f1f1; /* Slight gray background on hover */
+}
+
+/* Style for the task day */
+.task strong {
+    font-size: 18px; /* Bigger font size for the day */
+    color: #333; /* Darker color for the day */
+    display: block; /* Make it block to separate it from task text */
+    margin-bottom: 5px; /* Space below the day */
+}
+
+/* Style for the task title and subtitle */
+.task em {
+    font-size: 14px; /* Smaller font for subtitle */
+    color: #666; /* Lighter color for subtitle */
+    display: block; /* Make it block to keep it under the task description */
+    margin-top: 5px; /* Space above the subtitle */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

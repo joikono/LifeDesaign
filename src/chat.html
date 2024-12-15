@@ -8,21 +8,28 @@
 
     <header class="header">
         <div class="logo">
-            <a href="/src/loggedin.html">Life Des[ai]gn</a>
+            <a href="/loggedin.html">Life Des[ai]gn</a>
         </div>
+
         <nav class="nav">
-            <a href="/src/chat.html" class="nav-link active">Chat</a>
-            <a href="/src/goals.html" class="nav-link">Goals</a>
-            <div href="#user" class="nav-link">
-                <img src="/img/usericon.png" style="width: 50px; height: 50px;">
-                <a>User</a>
+            <a href="/chat.html" class="nav-link active">Chat</a>
+            <a href="/goals.html" class="nav-link">Goals</a>
+            <div class="user-container">
+              <div class="nav-link" id="userButton">
+                <img src="/img/usericon.png" alt="User" style="width: 50px; height: 50px;">
+                <span>User</span>
+              </div>
+              <div class="dropdown" id="userDropdown">
+                <a>Settings</a>
+                <a href="/index.html">Log Out</a>
+              </div>
             </div>
         </nav>
+
+        
     </header>
 
     <div class="container" style="align-items: center;">
-            <h1>Hi User, this is the chatbot page!</h1>
-
             <div id="chat-container" class="chat-container">
                 <!-- Chat messages will be dynamically appended here -->
             </div>
