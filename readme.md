@@ -11,3 +11,13 @@ To create a project with vite ensure you have nodejs and:
 4) npm run dev
 
 We need this to use Langflow
+
+How to run:
+
+1) download zip
+
+2) open folder on vs code
+
+3) npm i
+
+4) npm run dev
