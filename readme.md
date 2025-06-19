@@ -1,23 +1,40 @@
-We are using vite and nodejs
+A web application built with Vite and Node.js, integrated with Langflow for AI-powered functionality.
 
-To create a project with vite ensure you have nodejs and:
+## Prerequisites
 
-1) C:\Users\username\path>npm create vite@latest
+- Node.js installed on your system
 
-2) select project name, framework
+## Getting Started
 
-3) npm install (if not done already)
+### Method 1: Clone/Download Repository
+1. Download the repository as ZIP or clone it
+2. Open the project folder in VS Code
+3. Install dependencies:
+   ```bash
+   npm install
 
-4) npm run dev
+Start the development server:
+bashnpm run dev
 
-We need this to use Langflow
 
-How to run:
+Method 2: Create New Vite Project
 
-1) download zip
+Create a new Vite project:
+bashnpm create vite@latest
 
-2) open folder on vs code
+Select your project name and framework
+Navigate to project directory and install dependencies:
+bashnpm install
 
-3) npm i
+Start development server:
+bashnpm run dev
 
-4) npm run dev
+
+Tech Stack
+
+Frontend: Vite
+Runtime: Node.js
+AI Integration: Langflow
+
+Development
+The application runs on http://localhost:5173 by default when using npm run dev.
