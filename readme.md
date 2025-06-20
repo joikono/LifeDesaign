@@ -16,7 +16,7 @@ Choose one of the following methods to set up the project:
 
 1. Clone the repository:
 ```bash
-git clone [repository-url] # Replace with actual URL
+git clone https://github.com/joikono/LifeDesaign # Replace with actual URL
 cd [project-folder]
 ```
 
