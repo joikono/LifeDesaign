@@ -1,40 +1,54 @@
-A web application built with Vite and Node.js, integrated with Langflow for AI-powered functionality.
+LifeDes[ai]gn: AI-Powered Career Discovery
+LifeDes[ai]gn redefines career discovery by providing personalized, future-proof career plans and actionable guidance. This web application leverages an AI chatbot for progress-based exploration, helping users navigate their career paths with intelligent assistance. Built as a master's project focused on futuristic human interactions, LifeDes[ai]gn integrates OpenAI's API via Langflow, ensuring continuity in career-focused discussions through detailed contextual instructions and chat history storage.
 
-## Prerequisites
+Prerequisites
+Node.js installed on your system
+Getting Started
+Choose one of the following methods to set up the project:
 
-- Node.js installed on your system
+Method 1: Clone Repository
+Clone the repository:
+Bash
 
-## Getting Started
+git clone [repository-url] # Replace with actual URL
+cd [project-folder]
+Install dependencies:
+Bash
 
-### Method 1: Clone/Download Repository
-1. Download the repository as ZIP or clone it
-2. Open the project folder in VS Code
-3. Install dependencies:
-   ```bash
-   npm install
-
+npm install
 Start the development server:
-bashnpm run dev
+Bash
 
-
+npm run dev
 Method 2: Create New Vite Project
+Generate a new Vite project:
+Bash
 
-Create a new Vite project:
-bashnpm create vite@latest
+npm create vite@latest
+Select your project name and framework, then navigate into the new directory.
+Install dependencies:
+Bash
 
-Select your project name and framework
-Navigate to project directory and install dependencies:
-bashnpm install
+npm install
+Start the development server:
+Bash
 
-Start development server:
-bashnpm run dev
-
-
+npm run dev
 Tech Stack
-
 Frontend: Vite
 Runtime: Node.js
-AI Integration: Langflow
-
+AI Integration: Langflow (for OpenAI API integration)
 Development
-The application runs on http://localhost:5173 by default when using npm run dev.
+Kick off the development server with:
+
+Bash
+
+npm run dev
+The application will typically be accessible on localhost at the port indicated in your console output (commonly 5173).
+
+Security Considerations
+Important Note on API Keys:
+
+This project, as configured for frontend development, currently exposes sensitive API keys (e.g., OpenAI API keys via Langflow) directly in the client-side code.
+
+For production deployments or any public-facing use, it is critical to implement a secure backend proxy. This backend server should handle all API calls, securely storing your API keys as environment variables and preventing their direct exposure to the client. Failure to do so will result in significant security risks, including unauthorized usage and potential financial costs.
