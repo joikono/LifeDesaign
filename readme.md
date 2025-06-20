@@ -2,7 +2,7 @@
 
 LifeDes[ai]gn redefines career discovery by providing **personalized, future-proof career plans and actionable guidance**. This web application leverages an **AI chatbot for progress-based exploration**, helping users navigate their career paths with intelligent assistance. 
 
-Built as a **master's project focused on futuristic human interactions**, LifeDes[ai]gn integrates **OpenAI's API via Langflow**, ensuring continuity in career-focused discussions through detailed contextual instructions and chat history storage.
+LifeDes[ai]gn integrates **OpenAI's API via Langflow**, ensuring continuity in career-focused discussions through detailed contextual instructions and chat history storage.
 
 ## Prerequisites
 
