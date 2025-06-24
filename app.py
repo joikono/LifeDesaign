@@ -1,8 +1,8 @@
+# app.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import os
 import requests
-import json
+import os
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -11,122 +11,97 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-class LangflowClient:
-    def __init__(self, base_url, application_token):
-        self.base_url = base_url
-        self.application_token = application_token
-        self.headers = {
+# Get API token from environment
+API_TOKEN = os.getenv('APP_TOKEN')
+LANGFLOW_BASE_URL = "https://api.langflow.astra.datastax.com"
+
+@app.route('/api/chat', methods=['POST', 'OPTIONS'])
+def chat():
+    if request.method == 'OPTIONS':
+        # Handle CORS preflight
+        return '', 200
+    
+    try:
+        # Get the request data from frontend
+        data = request.get_json()
+        
+        # Extract required parameters
+        input_value = data.get('input_value', '')
+        input_type = data.get('input_type', 'chat')
+        output_type = data.get('output_type', 'chat')
+        tweaks = data.get('tweaks', {})
+        stream = data.get('stream', False)
+        
+        # Your Langflow IDs
+        langflow_id = "8e56e2ea-c2e9-4342-b5c1-c8783a5348d1"
+        flow_id = "4ff49841-5a1a-4121-8f6c-22798741bc48"
+        
+        # Construct the Langflow API URL
+        url = f"{LANGFLOW_BASE_URL}/lf/{langflow_id}/api/v1/run/{flow_id}"
+        
+        # Prepare headers with the API token
+        headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.application_token}"
+            "Authorization": f"Bearer {API_TOKEN}"
         }
-
-    def post(self, endpoint, body):
-        url = f"{self.base_url}{endpoint}"
-        try:
-            response = requests.post(url, headers=self.headers, json=body)
-            if not response.ok:
-                raise Exception(f"{response.status_code} {response.reason} - {response.text}")
-            return response.json()
-        except Exception as error:
-            print(f'Request Error: {error}')
-            raise error
-
-    def initiate_session(self, flow_id, langflow_id, input_value, input_type='chat', output_type='chat', stream=False, tweaks={}):
-        endpoint = f"/lf/{langflow_id}/api/v1/run/{flow_id}?stream={stream}"
-        return self.post(endpoint, {
+        
+        # Prepare the payload for Langflow
+        payload = {
             "input_value": input_value,
             "input_type": input_type,
             "output_type": output_type,
             "tweaks": tweaks
-        })
-
-    def run_flow(self, flow_id_or_name, langflow_id, input_value, input_type='chat', output_type='chat', tweaks={}, stream=False):
-        try:
-            init_response = self.initiate_session(flow_id_or_name, langflow_id, input_value, input_type, output_type, stream, tweaks)
-            return init_response
-        except Exception as error:
-            print(f'Error running flow: {error}')
-            raise error
-
-@app.route('/api/chat', methods=['POST'])
-def chat():
-    try:
-        # Get message from request
-        data = request.get_json()
-        message = data.get('message', '')
-        
-        # Initialize Langflow client with environment variables
-        langflow_client = LangflowClient(
-            base_url=os.getenv('LANGFLOW_BASE_URL', 'https://api.langflow.astra.datastax.com'),
-            application_token=os.getenv('LANGFLOW_TOKEN')
-        )
-        
-        # Your Langflow configuration
-        flow_id = os.getenv('LANGFLOW_FLOW_ID', '4ff49841-5a1a-4121-8f6c-22798741bc48')
-        langflow_id = os.getenv('LANGFLOW_ID', '8e56e2ea-c2e9-4342-b5c1-c8783a5348d1')
-        
-        tweaks = {
-            "ChatInput-x4Fjo": {},
-            "Prompt-V9Pbp": {},
-            "OpenAIModel-Erifd": {},
-            "ChatOutput-LU6cI": {}
         }
         
-        # Run the flow
-        response = langflow_client.run_flow(
-            flow_id,
-            langflow_id,
-            message,
-            'chat',
-            'chat',
-            tweaks,
-            False
+        if stream:
+            url += f"?stream={stream}"
+        
+        print(f"DEBUG: Sending request to Langflow...")
+        print(f"DEBUG: URL: {url}")
+        print(f"DEBUG: Payload: {payload}")
+        
+        # Make the request to Langflow
+        response = requests.post(
+            url, 
+            json=payload, 
+            headers=headers, 
+            timeout=120  # Even longer timeout
         )
         
-        # Extract the response text
-        if response and response.get('outputs'):
-            flow_outputs = response['outputs'][0]
-            first_component_outputs = flow_outputs['outputs'][0]
-            output = first_component_outputs['outputs']['message']
-            response_text = output['message']['text']
-            
-            return jsonify({
-                'success': True,
-                'message': response_text
-            })
+        print(f"DEBUG: Response status: {response.status_code}")
+        
+        if response.status_code == 200:
+            response_data = response.json()
+            print(f"DEBUG: Response received successfully")
+            return jsonify(response_data)
         else:
+            print(f"DEBUG: Error from Langflow: {response.status_code} - {response.text}")
             return jsonify({
-                'success': False,
-                'error': 'No response from AI service'
-            }), 500
+                "error": f"Langflow API error: {response.status_code}",
+                "details": response.text
+            }), response.status_code
             
+    except requests.exceptions.Timeout:
+        print("DEBUG: Request timed out")
+        return jsonify({"error": "Request timed out"}), 408
+        
+    except requests.exceptions.RequestException as e:
+        print(f"DEBUG: Request exception: {str(e)}")
+        return jsonify({"error": f"Request failed: {str(e)}"}), 500
+        
     except Exception as e:
-        print(f"Error in chat endpoint: {str(e)}")
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
+        print(f"DEBUG: Unexpected error: {str(e)}")
+        return jsonify({"error": f"Server error: {str(e)}"}), 500
 
-@app.route('/api/health', methods=['GET'])
-def health_check():
-    return jsonify({'status': 'healthy', 'message': 'Backend is running'})
-
-@app.errorhandler(404)
-def not_found(error):
-    return jsonify({'error': 'Endpoint not found'}), 404
-
-@app.errorhandler(500)
-def internal_error(error):
-    return jsonify({'error': 'Internal server error'}), 500
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"status": "healthy"})
 
 if __name__ == '__main__':
-    # Check if required environment variables are set
-    required_vars = ['LANGFLOW_TOKEN']
-    missing_vars = [var for var in required_vars if not os.getenv(var)]
-    
-    if missing_vars:
-        print(f"Error: Missing required environment variables: {', '.join(missing_vars)}")
+    if not API_TOKEN:
+        print("ERROR: APP_TOKEN environment variable not set!")
         exit(1)
     
-    # Run the Flask app
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    print(f"Starting Flask server...")
+    print(f"API Token loaded: {'Yes' if API_TOKEN else 'No'}")
+    app.run(debug=True, port=5000)
